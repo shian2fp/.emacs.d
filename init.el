@@ -2,47 +2,48 @@
 ;;; ~/.emacs.d/init.el
 ;;;
 
-(defvar init-loader-directory
-  (locate-user-emacs-file "init.d")
-  "The directory where init scripts are loaded from.")
+(defvar init--config-directory
+  (locate-user-emacs-file "config")
+  "The directory where initialization snippets are loaded from.")
 
-(defvar init-loader-filename-regexp
+(defvar init--config-filename-regexp
   "^[0-9]\\{2\\}-[-0-9A-Za-z]+\\.el[cn]?$"
-  "The regular expression that matches filenames for init scripts.")
+  "The regular expression that matches filenames for each initialization
+snippets.")
 
-(defvar init-loader-suffix-regexp
+(defvar init--config-suffix-regexp
   "\\.el[cn]?$"
-  "The regular expression that matches file suffix for init scripts.")
+  "The regular expression that matches suffixes of filenames for each
+initialization snippets.")
 
-(defun init-loader-get-init-scripts ()
-  "Get init scripts under `init-loader-directory'.
+(defun init--get-config-snippets ()
+  "Get available config snippets from `init--config-directory'.
 
-Files which do not match `init-loader-filename-regexp' are ignored."
-  (when (file-directory-p init-loader-directory)
-    (directory-files init-loader-directory
+Each config snippets must match `init--config-filename-regexp'."
+  (when (file-directory-p init--config-directory)
+    (directory-files init--config-directory
                      t
-                     init-loader-filename-regexp)))
+                     init--config-filename-regexp)))
 
-(defun init-loader-remove-suffix (pathname)
-  "Remove suffixes designated by `init-loader-suffix-regexp'."
-  (string-trim-right pathname init-loader-suffix-regexp))
+(defun init--remove-filename-suffix (path)
+  "Remove suffixes that matches `init--config-suffix-regexp'."
+  (string-trim-right path init--config-suffix-regexp))
 
-(defun init-loader-get-init-scripts-without-suffix ()
-  "Get init scripts like `init-loader-get-init-scripts'.
+(defun init--load-config-snippets ()
+  "Load config snippets from `init--config-directory'."
+  (dolist (snippet (delete-dups (mapcar 'init--remove-filename-suffix
+                                        (init--get-config-snippets))))
+    (let ((exit-point (eval-when-compile (gensym))))
+      (catch exit-point
+        (handler-bind ((t (lambda (err)
+                            (message "Error while loading %s: %s"
+                                     (file-name-base snippet)
+                                     (error-message-string err))
+                            ;;(backtrace)
+                            (throw exit-point nil))))
+          (load snippet nil nil nil t))))))
 
-Suffixes for each filenames are removed by `init-loader-remove-suffix'."
-  (delete-dups (mapcar 'init-loader-remove-suffix
-                       (init-loader-get-init-scripts))))
-
-(defun init-loader-load-init-scripts ()
-  "Load init scripts under `init-loader-directory'."
-  (dolist (path (init-loader-get-init-scripts-without-suffix))
-    (condition-case err (load path nil nil nil t)
-      (t (message "Error while loading %s: %s"
-                  (file-name-base path)
-                  (error-message-string err))))))
-
-(init-loader-load-init-scripts)
+(init--load-config-snippets)
 
 ;;; Local Variables:
 ;;; mode: emacs-lisp
