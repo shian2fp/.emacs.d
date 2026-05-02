@@ -1,0 +1,12 @@
+#
+# ~/.emacs.d/.gitignore
+#
+
+*~
+
+/eln-cache/
+
+# Local Variables:
+# mode: gitignore
+# coding: utf-8-unix
+# End:
