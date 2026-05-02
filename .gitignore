@@ -6,6 +6,8 @@
 
 /eln-cache/
 
+/tramp
+
 # Local Variables:
 # mode: gitignore
 # coding: utf-8-unix
