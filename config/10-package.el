@@ -7,13 +7,11 @@
   (push '("melpa" . "https://melpa.org/packages/")
         package-archives))
 
-(defun init--ensure-package-exist (package &optional autoloads)
+(defun init--ensure-package-exist (package)
   (unless (package-installed-p package)
     (unless package-archive-contents
       (package-refresh-contents))
-    (package-install package)
-    (when autoloads
-      (require autoloads))))
+    (package-install package)))
 
 ;;; Local Variables:
 ;;; mode: emacs-lisp
