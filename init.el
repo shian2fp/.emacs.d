@@ -16,6 +16,10 @@ snippets.")
   "The regular expression that matches suffixes of filenames for each
 initialization snippets.")
 
+(defvar init--lisp-directory
+  (locate-user-emacs-file "lisp")
+  "The directory where user defined libraries are placed.")
+
 (defun init--get-config-snippets ()
   "Get available config snippets from `init--config-directory'.
 
@@ -43,6 +47,7 @@ Each config snippets must match `init--config-filename-regexp'."
                             (throw exit-point nil))))
           (load snippet nil nil nil t))))))
 
+(push init--lisp-directory load-path)
 (init--load-config-snippets)
 
 ;;; Local Variables:
