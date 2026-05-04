@@ -3,11 +3,15 @@
 #
 
 *~
+*.elc
+.#*
 
 /auto-save-list/
 /eln-cache/
 /elpa/
 
+/config/00-custom.el
+/lisp/*-autoloads.el
 /tramp
 
 # Local Variables:
