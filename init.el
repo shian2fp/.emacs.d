@@ -47,6 +47,8 @@ Each config snippets must match `init--config-filename-regexp'."
                             (throw exit-point nil))))
           (load snippet nil nil nil t))))))
 
+(make-directory init--config-directory t)
+(make-directory init--lisp-directory t)
 (push init--lisp-directory load-path)
 (init--load-config-snippets)
 
