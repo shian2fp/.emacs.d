@@ -8,6 +8,12 @@
 ;; move the custom file.
 (setq custom-file (locate-user-emacs-file "config/00-custom.el"))
 
+;; use `column-number-mode'.
+(column-number-mode t)
+
+;; use `line-number-mode'.
+(line-number-mode t)
+
 ;; set language environment.
 (set-language-environment "Japanese")
 
