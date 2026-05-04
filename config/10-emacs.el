@@ -8,6 +8,9 @@
 ;; move the custom file.
 (setq custom-file (locate-user-emacs-file "config/00-custom.el"))
 
+;; set language environment.
+(set-language-environment "Japanese")
+
 ;;; Local Variables:
 ;;; mode: emacs-lisp
 ;;; coding: utf-8-unix
