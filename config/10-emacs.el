@@ -17,6 +17,9 @@
 ;; set language environment.
 (set-language-environment "Japanese")
 
+;; set default coding system.
+(set-default-coding-systems 'utf-8-unix)
+
 ;;; Local Variables:
 ;;; mode: emacs-lisp
 ;;; coding: utf-8-unix
