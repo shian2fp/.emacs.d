@@ -2,9 +2,10 @@
 ;;; ~/.emacs.d/config/10-package.el
 ;;;
 
-;; add community driven package archive.
-(push '("melpa" . "https://melpa.org/packages/")
-      package-archives)
+(with-eval-after-load 'package
+  ;; add community driven package archive.
+  (push '("melpa" . "https://melpa.org/packages/")
+        package-archives))
 
 (defun init--ensure-package-exist (package &optional autoloads)
   (unless (package-installed-p package)
