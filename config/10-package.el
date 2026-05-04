@@ -1,5 +1,5 @@
 ;;;
-;;; ~/.emacs.d/config/02-package.el
+;;; ~/.emacs.d/config/10-package.el
 ;;;
 
 (require 'package)
