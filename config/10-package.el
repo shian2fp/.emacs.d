@@ -2,7 +2,7 @@
 ;;; ~/.emacs.d/config/10-package.el
 ;;;
 
-(push '(melpa . "https://melpa.org/packages/")
+(push '("melpa" . "https://melpa.org/packages/")
       package-archives)
 
 ;;; Local Variables:
