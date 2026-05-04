@@ -1,5 +1,5 @@
 ;;;
-;;; ~/.emacs.d/config/01-emacs.el
+;;; ~/.emacs.d/config/10-emacs.el
 ;;;
 
 ;; do not make backup files.
