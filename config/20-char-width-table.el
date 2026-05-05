@@ -1,5 +1,5 @@
 ;;;
-;;; ~/.emacs.d/config/10-char-width-table.el
+;;; ~/.emacs.d/config/20-char-width-table.el
 ;;;
 
 (unless (display-graphic-p)
