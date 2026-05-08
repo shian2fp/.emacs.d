@@ -10,6 +10,7 @@
 /eln-cache/
 /elpa/
 
+/.cache/
 /config/00-custom.el
 /lisp/*-autoloads.el
 /tramp
