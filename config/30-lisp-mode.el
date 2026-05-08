@@ -3,18 +3,14 @@
 ;;;
 
 (with-eval-after-load 'cl-indent
-  (put 'multiple-value-bind
-       'common-lisp-indent-function
-       '((&whole 6 &rest 1) &body))
-  (put 'multiple-value-prog1
-       'common-lisp-indent-function
-       0)
-  (put 'prog1
-       'common-lisp-indent-function
-       0)
-  (put 'prog2
-       'common-lisp-indent-function
-       0))
+  (dolist (pair
+           '((defsystem . (4 &rest 2))
+             (define-system . (4 &rest 2))
+             (multiple-value-bind . ((&whole 6 &rest 1) &body))
+             (multiple-value-prog1 . 0)
+             (prog1 . 0)
+             (prog2 . 0)))
+    (put (car pair) 'common-lisp-indent-function (cdr pair))))
 
 ;;; Local Variables:
 ;;; mode: emacs-lisp
