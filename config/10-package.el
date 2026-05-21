@@ -5,10 +5,7 @@
 (with-eval-after-load 'package
   ;; add community driven package archive.
   (push '("melpa" . "https://melpa.org/packages/")
-        package-archives)
-  ;; use MELPA only due to `gnu.org' down.
-  (setq package-archives
-        '(("melpa" . "https://melpa.org/packages/"))))
+        package-archives))
 
 (defun init--ensure-package-exist (package)
   (unless (package-installed-p package)
