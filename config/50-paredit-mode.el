@@ -13,6 +13,9 @@
 (with-eval-after-load 'scheme
   (push 'paredit-mode scheme-mode-hook))
 
+(with-eval-after-load 'racket-mode
+  (push 'paredit-mode racket-mode-hook))
+
 ;;; Local Variables:
 ;;; mode: emacs-lisp
 ;;; coding: utf-8-unix
