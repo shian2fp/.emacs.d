@@ -11,6 +11,7 @@
 (init--ensure-package-exist 'gnuplot)
 (init--ensure-package-exist 'markdown-mode)
 (init--ensure-package-exist 'nftables-mode)
+(init--ensure-package-exist 'racket-mode)
 (init--ensure-package-exist 'systemd)
 (init--ensure-package-exist 'web-mode)
 
