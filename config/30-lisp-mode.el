@@ -6,7 +6,8 @@
   (dolist (pair
            '((defsystem . (4 &rest 2))
              (define-system . (4 &rest 2))
-             (multiple-value-bind . ((&whole 6 &rest 1) &body))
+             (destructuring-bind . ((&whole 6 &rest 1) 2 &body))
+             (multiple-value-bind . ((&whole 6 &rest 1) 2 &body))
              (multiple-value-prog1 . 0)
              (prog1 . 0)
              (prog2 . 0)))
