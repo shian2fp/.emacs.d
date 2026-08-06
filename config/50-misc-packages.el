@@ -8,6 +8,7 @@
 (init--ensure-package-exist 'apparmor-mode)
 (init--ensure-package-exist 'cmake-mode)
 (init--ensure-package-exist 'git-modes)
+(init--ensure-package-exist 'glsl-mode)
 (init--ensure-package-exist 'gnuplot)
 (init--ensure-package-exist 'markdown-mode)
 (init--ensure-package-exist 'nftables-mode)
