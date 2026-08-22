@@ -3,7 +3,8 @@
 ;;;
 
 (with-eval-after-load 'cl-indent
-  (dolist (pair '((defcallback . (6 6 (&whole 6 &rest 1) &body))
+  (dolist (pair '((defcallback . (4 4 (&whole 6 &rest 1) &body))
+                  (defcstruct . (4 &rest 2))
                   (defsystem . (4 &rest 2))
                   (define-system . (4 &rest 2))
                   (multiple-value-bind . ((&whole 6 &rest 1) nil &body))
