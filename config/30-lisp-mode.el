@@ -4,6 +4,7 @@
 
 (with-eval-after-load 'cl-indent
   (dolist (pair '((defcallback . (4 4 (&whole 6 &rest 1) &body))
+                  (defcenum . (4 &rest 2))
                   (defcstruct . (4 &rest 2))
                   (defsystem . (4 &rest 2))
                   (define-system . (4 &rest 2))
